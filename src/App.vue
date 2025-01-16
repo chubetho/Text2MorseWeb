@@ -8,7 +8,7 @@ type Symbol = 'dot' | 'dash' | 'empty'
 
 Chart.register(CategoryScale, LinearScale, BarController, BarElement)
 
-const speed = ref(1)
+const speed = ref(10)
 const option: ChartConfiguration = {
   type: 'bar',
   options: {
@@ -268,30 +268,30 @@ function reset() {
 
   input.value = 'Hello'
   output.value = ''
-  speed.value = 1
+  speed.value = 10
 
   controller = new AbortController()
 }
 </script>
 
 <template>
-  <div class="flex items-center flex-col gap-10 h-screen max-w-[1600px] w-full p-10 mx-auto">
-    <div class="relative flex justify-center items-center w-full border-2 border-black rounded-md">
+  <div class="flex items-center flex-col gap-4 h-screen max-w-[1600px] w-full p-4 mx-auto">
+    <div class="relative flex justify-center items-center w-full border-2 border-black rounded-md max-h-[500px]">
       <div class="relative">
-        <Draw :symbol="symbol" :is-sending="isSending" />
+        <Draw :symbol="symbol" :is-sending="isSending" class="h-[500px]" />
 
         <span
-          class="absolute top-[7rem] left-[26.5rem] font-bold text-lg"
+          class="absolute top-[6rem] left-[26.5rem] font-bold text-lg"
           :class="symbol === 'dot' ? 'text-white' : 'text-black'"
         >
           DOT
         </span>
 
-        <span class="absolute top-[27rem] left-[27rem] font-bold text-lg">
+        <span class="absolute top-[23rem] left-[27rem] font-bold text-lg">
           DASH
         </span>
 
-        <form class="absolute top-[48.2%] left-[1rem]" @submit.prevent="sendText">
+        <form class="absolute top-[47.5%] left-[5rem]" @submit.prevent="sendText">
           <label>
             <p class="text-sm text-black/75 italic">Input</p>
             <input
@@ -302,7 +302,7 @@ function reset() {
           </label>
         </form>
 
-        <div class="absolute top-[47.5%] right-[0.5rem]">
+        <div class="absolute top-[47%] right-[2.9rem]">
           <p class="text-sm text-black/75 italic">
             Output
           </p>
@@ -339,7 +339,7 @@ function reset() {
       </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-10 w-full">
+    <div class="grid grid-cols-2 gap-4 w-full">
       <div class="p-4 rounded-md border-2 border-black max-h-[400px] overflow-y-scroll">
         <pre class="font-bold">Input logs:</pre>
         <ul>
