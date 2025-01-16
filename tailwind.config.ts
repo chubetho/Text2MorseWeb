@@ -7,7 +7,11 @@ export default {
     './App.vue',
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        blink: 'pulse 50ms linear infinite',
+      },
+    },
   },
   plugins: [],
 } satisfies Config
