@@ -170,6 +170,8 @@ const map: Record<string, string> = {
 }
 
 async function sendText() {
+  reset({ speed: speed.value })
+
   if (!chart.value)
     return
 
@@ -249,7 +251,7 @@ async function sendText() {
   isSending.value = false
 }
 
-function reset() {
+function reset(opt: { speed?: number } = {}) {
   if (!chart.value)
     return
 
@@ -268,7 +270,7 @@ function reset() {
 
   input.value = 'Hello'
   output.value = ''
-  speed.value = 10
+  speed.value = opt.speed ?? 10
 
   controller = new AbortController()
 }
