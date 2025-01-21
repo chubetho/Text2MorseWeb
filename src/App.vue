@@ -170,7 +170,7 @@ const map: Record<string, string> = {
 }
 
 async function sendText() {
-  reset({ speed: speed.value })
+  reset({ speed: speed.value, input: input.value })
 
   if (!chart.value)
     return
@@ -251,7 +251,7 @@ async function sendText() {
   isSending.value = false
 }
 
-function reset(opt: { speed?: number } = {}) {
+function reset(opt: { speed?: number, input?: string } = {}) {
   if (!chart.value)
     return
 
@@ -268,7 +268,7 @@ function reset(opt: { speed?: number } = {}) {
   inputLogs.value = []
   outputLogs.value = []
 
-  input.value = 'Hello'
+  input.value = opt.input ?? 'Hello'
   output.value = ''
   speed.value = opt.speed ?? 10
 
