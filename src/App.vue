@@ -317,7 +317,7 @@ function reset(opt: { speed?: number } = {}) {
       <div class="absolute top-4 left-4 flex gap-2">
         <button
           class="px-4 py-2 rounded-md border bg-red-500 text-white"
-          @click="reset"
+          @click="reset()"
         >
           Reset
         </button>
